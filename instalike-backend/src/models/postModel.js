@@ -8,3 +8,10 @@ export const getPosts = async () => {
   const posts = await collection.find().toArray();
   return posts;
 };
+
+export const createPost = async (post) => {
+  const db = connection.db("AluraGoogleDb");  
+  const collection = db.collection("posts");
+  const result = await collection.insertOne(post);
+  return result;
+};
